@@ -12,7 +12,48 @@ export default class User {
         this.#ativo = ativo
     }
 
+    get nome() {
+        //pode conter lógica relacional   
+        return this.#nome
+    }
+
+    get email() {
+        return this.#email
+    }
+
+    get nascimento() {
+        return this.#nascimento
+    }
+    
+    get role() {
+        return this.#role
+    }
+
+    get ativo() {
+        return this.#ativo
+    }
+
+    set nome(novoNome) {
+        if(novoNome === '') {
+            throw new Error('formato não válido')
+        }
+        this.#nome = novoNome
+    }
+
+/*     
+    EXEMPLO METODO PRIVADO 
+
+    #montaObjUser() {
+        return({
+            nome: this.#nome,
+            email: this.#email,
+            nascimento: this.#nascimento,
+            role: this.#role,
+            ativo: this.#ativo
+        })
+    } */
+
     exibirInfos() {
-        return `${this.#nome}, ${this.#email}`
+        return `${this.nome}, ${this.email}, ${this.nascimento},${this.role},${this.ativo}`
     }
 }
